@@ -35,10 +35,13 @@ public class A1Novice {
 				
 				double itemPrice = scan.nextDouble();
 				
-				tPrice = tPrice + (itemPrice * num);
+				
+				tPrice = tPrice + (num * itemPrice);	
 				
 		}
-			System.out.println(fname.charAt(0) + ". " + lname + ": " + tPrice);
+			
+			
+			System.out.println(fname.charAt(0) + ". " + lname + ": " + String.format("%.2f", tPrice));
 		
 	}
 	}
