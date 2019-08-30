@@ -73,9 +73,10 @@ public class A1Adept {
 			double average = calculateAverage(totals);
 			
 			
-			System.out.println("Biggest: " + fnames[biggest] + " " + lnames[biggest] + "(" + (totals[biggest]) + ")");
+			// String.format("%.2f", tPrice)
+			System.out.println("Biggest: " + fnames[biggest] + " " + lnames[biggest] + " (" + String.format("%.2f",(totals[biggest])) + ")");
 			
-			System.out.println("Smallest: " + fnames[smallest] + " " + lnames[smallest] + "(" + (totals[smallest]) + ")");
+			System.out.println("Smallest: " + fnames[smallest] + " " + lnames[smallest] + " (" + String.format("%.2f",(totals[smallest])) + ")");
 			
 			System.out.println("Average: " + average);
 			
