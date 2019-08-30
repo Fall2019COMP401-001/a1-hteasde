@@ -15,12 +15,11 @@ public class A1Adept {
 		String[] itemNames = new String[storeCount];
 		
 		double[] prices = new double[storeCount];
+	
 		
-		String[] fnames = null;
-	    
-	    String[] lnames = null; 
+		 
 		
-		double[] totals = null;
+
 	
 		
 		
@@ -29,18 +28,21 @@ public class A1Adept {
 			itemNames[i] = scan.next();
 			
 		    prices[i] = scan.nextDouble();
-			
-			int numCust = scan.nextInt();
-			
 		    
-		    totals = new double[numCust];
+		}
+		    
+			int numCust;
+			
+			numCust = scan.nextInt();
+			
+			String[] fnames = new String[numCust];
+			
+			String[] lnames = new String[numCust];
+			
+			double[] totals = new double[numCust];
 		    
 			
 			for (int j = 0; j < numCust; j++) {
-				
-				fnames = new String[numCust];
-				
-				lnames = new String[numCust];
 			    
 			    fnames[j] = scan.next();
 			    
@@ -52,6 +54,7 @@ public class A1Adept {
 				
 				String[] foodNames = new String[numBought];
 				
+				
 				for (int k = 0 ; k < numBought; k++) {
 					
 					itemCount[k] = scan.nextInt();
@@ -60,8 +63,9 @@ public class A1Adept {
 					
 					
 				}
-				
+				 
 				totals[j] = calculateTotal(itemNames, prices, itemCount, foodNames);
+				
 				
 				
 			}
@@ -72,20 +76,21 @@ public class A1Adept {
 			
 			double average = calculateAverage(totals);
 			
-			
-			// String.format("%.2f", tPrice)
 			System.out.println("Biggest: " + fnames[biggest] + " " + lnames[biggest] + " (" + String.format("%.2f",(totals[biggest])) + ")");
 			
 			System.out.println("Smallest: " + fnames[smallest] + " " + lnames[smallest] + " (" + String.format("%.2f",(totals[smallest])) + ")");
 			
 			System.out.println("Average: " + String.format("%.2f", average));
 			
+			
 		}
 		
 		
-			
-			
-		}
+		
+		
+		
+		
+	
 				
 
 
