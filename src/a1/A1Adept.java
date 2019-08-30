@@ -78,7 +78,7 @@ public class A1Adept {
 			
 			System.out.println("Smallest: " + fnames[smallest] + " " + lnames[smallest] + " (" + String.format("%.2f",(totals[smallest])) + ")");
 			
-			System.out.println("Average: " + average);
+			System.out.println("Average: " + String.format("%.2f", average));
 			
 		}
 		
