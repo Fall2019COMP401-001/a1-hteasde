@@ -12,19 +12,13 @@ public class A1Adept {
 		
 		int storeCount = scan.nextInt();
 		
-		double[] prices = new double[storeCount];
-		
 		String[] itemNames = new String[storeCount];
+		
+		double[] prices = new double[storeCount];
 		
 		String[] fnames = null;
 	    
 	    String[] lnames = null; 
-	    
-		double avg = 0;
-		
-		int smally = 0;
-		
-		int biggie = 0;
 		
 		double[] totals = null;
 	
@@ -45,46 +39,47 @@ public class A1Adept {
 			for (int j = 0; j < numCust; j++) {
 				
 				fnames = new String[numCust];
+				
+				lnames = new String[numCust];
 			    
 			    fnames[j] = scan.next();
 			    
 			    lnames[j] = scan.next();
 			    
-			    int[] numBought = new int[numCust];
+			    int numBought = scan.nextInt();
+			    
+			    int[] itemCount = new int[numBought];
 				
-				numBought[j] = scan.nextInt();
+				String[] foodNames = new String[numBought];
 				
-				String[] foodNames = new String[numBought.length];
-				
-				for (int k = 0 ; k < numBought.length; k++) {
+				for (int k = 0 ; k < numBought; k++) {
 					
-					int quantity = scan.nextInt();
+					itemCount[k] = scan.nextInt();
 				
 					foodNames[k] = scan.next();
 					
 					
 				}
 				
-				totals[j] = calculateTotal(itemNames, prices, numBought, foodNames);
+				totals[j] = calculateTotal(itemNames, prices, itemCount, foodNames);
 				
 				
 			}
 			
-			avg = calculateAverage(totals);
+			int smallest = smallSpender(totals);
 			
-			smally = smallSpender(totals);
+			int biggest = bigSpender(totals);
 			
-			biggie = bigSpender(totals);
+			double average = calculateAverage(totals);
+			
+			
+			System.out.println("Biggest: " + fnames[biggest] + lnames[biggest] + (totals[biggest]));
+			
+			System.out.println("Smallest: " + fnames[smallest] + lnames[smallest] + (totals[smallest]));
+			
+			System.out.println("Average: " + average);
 			
 		}
-		
-		
-		
-		System.out.println("Biggest: " + fnames[biggie] + lnames[biggie] + (totals[biggie]));
-		
-		System.out.println("Smallest: " + fnames[smally] + lnames[smally] + (totals[smally]));
-		
-		System.out.println("Average: " + avg);
 		
 		
 			
@@ -103,7 +98,7 @@ static double calculateTotal (String[] itemNames, double[] itemPrices, int[] ite
 			
 			if (foodName[i].equals(itemNames[j])) {
 				
-				double num = itemPrices[j] * itemCount[i];
+				double num = itemPrices[j] * itemCount.length;
 				
 				total += num;
 			}
