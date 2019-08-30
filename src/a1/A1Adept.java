@@ -104,7 +104,7 @@ static double calculateTotal (String[] itemNames, double[] itemPrices, int[] ite
 			
 			if (foodName[i].equals(itemNames[j])) {
 				
-				double num = itemPrices[j] * itemCount.length;
+				double num = itemPrices[j] * itemCount[i];
 				
 				total += num;
 			}
