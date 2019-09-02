@@ -38,13 +38,13 @@ public class A1Jedi {
 		
 		double[] totals = new double[numCust];
 		
-		int numBought = 0;
+		// int numBought = 0;
 		
 		int[] count = new int[storeCount];
 		
-		int[] itemCount = new int[numCust];
+		// int[] itemCount = new int[numCust];
 		
-		String[] foodNames = new String[numCust];
+		// String[] foodNames = new String[numCust];
 		
 		int[] quant = new int[storeCount];
 			
@@ -54,11 +54,11 @@ public class A1Jedi {
 				
 				lname[j] = scan.next();
 				
-				numBought = scan.nextInt();	
+				int numBought = scan.nextInt();	
 				
+				int[] itemCount = new int[numBought];
 			
-			
-			
+				String[] foodNames = new String[numBought];
 			
 				for (int k = 0; k < numBought; k++) {
 					
@@ -68,25 +68,24 @@ public class A1Jedi {
 					
 					for (int p = 0; p < storeCount; p++) {
 						
-						count[p] += isBought(itemNames[p], foodNames[k]);
+						
 						
 						quant[p] += howMany(itemNames[p], itemCount[k], foodNames[k]);
 						
 						
 					}
 					
+					
+					
 			
 					}
-				
-				
-				
-				
-					
-					
+				for (int w = 0; w < itemNames.length; w++) {
+					count[w] += isBought(itemNames[w], foodNames);
 				}
-			
-		
-			
+				
+				
+			}
+	
 			
 			for (int i = 0; i < itemNames.length; i++) {
 				
@@ -109,16 +108,16 @@ public class A1Jedi {
 	
 		
 	
-	static int isBought (String itemNames, String foodNames) {
+	static int isBought (String itemNames, String[] foodNames) {
 		
 		
-		//for (int i = 0; i < foodNames.length; i++) {
+		for (int i = 0; i < foodNames.length; i++) {
 			
-			if (itemNames.equals(foodNames)) {
+			if (itemNames.equals(foodNames[i])) {
 				
-				return 1;
+				 return 1;
 			}
-	//	}
+		}
 		
 		return 0;
 	}
